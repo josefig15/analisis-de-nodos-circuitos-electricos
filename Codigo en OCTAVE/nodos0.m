@@ -47,26 +47,6 @@ nodos6 % Programa 6 F.Voltaje (Super Nodos Normal)
 
 rref(matC)
 
-nodos7 % Programa 7 Calculo corriente y voltaje resistores
 
-% VISUALIZACION
-%lista_elementos = zeros(L,1)
- %for F = 1:L
-  %lista_elementos(F) = F;
- %endfor
 
-%matriz2 = [lista_elementos,matB]
 
- %lista_ecuaciones_y = zeros(Q,1);
- %lista_ecuaciones_x = zeros(1,Q+1);
- 
- %for F = 1:Q
-   %lista_ecuaciones_y(F) = F;
- %endfor
- 
- %for F = 1:Q+1
-   %lista_ecuaciones_x(F) = F-1;
- %endfor
- 
- %lista_ecuaciones_x
- %matriz3 = [lista_ecuaciones_y, matC]
