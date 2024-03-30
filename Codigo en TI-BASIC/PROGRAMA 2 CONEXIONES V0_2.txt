@@ -1,0 +1,25 @@
+// *** Proceso para crear matices de trabajo ***
+: { L , Q } -> Dim( [B] )			// CREA MAT[B] "Conexiones"
+: Fill( 0 , [B] )					// CLR  MAT[B] "Conexiones"
+
+: { Q , Q + 1 } -> Dim( [C] )		// CREA MAT[C] "Ecuaciones"
+: Fill( 0 , [C] )					// CLR  MAT[C] "Ecuaciones"
+
+
+// *** Proceso Escribir Conexiones 
+: For( F, 1 , L)					// Recorre Mat[A] Ingreso				
+	:[A](F,1) -> T					// Tipo
+	:[A](F,3) -> P					// Positivo
+	:[A](F,4) -> N					// Negativo
+	
+	: P != 0 AND N != 0 -> K		// Dos terminales diferente de cero
+	: T == 3 AND K -> D				// Super Nodo y Dos terminales diferente de cero
+	
+	: If T == 1 OR T == 2 OR D 		// Cuando Tipo 1 Resistor
+	: Then
+		: If P !=0					// Cuando Positivo diferente de Cero	
+			: 1 -> [B](F,P)			// 		Escribe 1 en fila elemento, columna Positivo Mat[B]
+		: If N !=0					// Cuando Negativo diferente de Cero
+			: 1 -> [B](F,N)			// 		Escribe 1 en fila elemento, columna Negativo Mat[B]
+	: End 
+: End

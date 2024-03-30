@@ -1,0 +1,45 @@
+	
+: Q -> dim(L2)							// VECTOR ALMACENA POSICION SN SIMPLE							
+: Fill( 0 , L2 )						// LIMPIA VECTOR L2
+
+: For( F , 1 , L )						// RECORRE FILAS MAT[A]{ F , 4 }
+								
+	: [A](F,1) -> T						// TIPO
+	: [A](F,2) -> M						// MAGNITUD	
+	: [A](F,3) -> P						// POSITIVO				
+	: [A](F,4) -> N						// NEGATIVO
+								
+	: P != 0 AND N == 0 -> I			// Indicador nodo Positivo diferente de cero
+	: P == 0 AND N != 0 -> J			// Indicador nodo Negativo diferente de cero
+	
+	: If T = 3 AND ( I OR J ) 			// CUANDO "SN SIMPLE"	
+	: Then
+	//*** PROCESO SELECCION DE ESCRITURA ***
+
+		: If I == 1						// Cuando Positivo diferente de cero
+			: P -> H					// Puntero almacena Posicion escritura SNS en fila POSITIVO MAT[C]
+		
+		: If J == 1						// Cuando Negativo diferente de cero
+			: N -> H					// Puntero almacena Posicion escritura SNS en fila NEGATIVO MAT[C]
+
+		: 1 -> L2(H)					// Escribe 1 en la posicion SNS en vector L2
+		
+		// *** PPROCESO ESCRITURA ECUACION SN ***
+		: For( C , 1 , Q + 1 )			// RECORRE COLUMNAS MAT[C]
+					
+			: 0 -> [C](H,C)				// 	Limpia Fila SN en MAT[C]
+
+			: If C == P AND I 			// 	Cuando Columna Positivo y Positivo diferente de cero
+				: +1 -> [C](H,C)		//		escribe ecuancion fila no Conexion H 			
+						
+			: If C == N AND J 			// 	Cuando Columna Negativo y Negativo diferente de cero
+				: -1 -> [C](H,C) 		//		escribe ecuancion fila no Conexion H	 
+						
+			: If C == Q + 1				// 	Cuando Columna Final
+				:  M -> [C](H,C)		//		copia magnitud ultima columna	
+				
+		: End
+
+	: End
+
+:End

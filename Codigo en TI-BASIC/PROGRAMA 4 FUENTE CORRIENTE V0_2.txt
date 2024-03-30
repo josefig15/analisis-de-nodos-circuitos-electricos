@@ -1,0 +1,41 @@
+//*** Proceso Escribir EcSaciones F. CORRIENTE ***
+: 0 -> S										// AcSmSlador FSente de Corriente qSe entra Nodo
+
+: For( F , 1 , Q )								// Recorre EcSacion Fila Mat[C], ColSmnas [B] = ColSmnas [C]
+	
+	: For( Y , 1 , L )							// Recorre Filas MAT[B] conexiones, filas [B] = filas [A] 
+	
+		: [A](Y,1) -> T							// Tipo
+		: [A](Y,2) -> M							// Magnitud
+		: [A](Y,3) -> P							// Positivo
+		: [A](Y,4) -> N							// Negativo
+		: [B](Y,F) -> X							// Conexion
+
+		: If T == 2	AND X 						// Tipo Fuente Corriente y Conexion
+		: Then
+			: If P = F							// CSANDO "HAY CONEXION NODO Y SI NODO POSITIVO FSENTE I"
+				: M + S -> S					// 		SSMATORIA POSITIVA 
+			
+			: If P != F							// CSANDO "HAY CONEXION NODO Y NO NODO POSITIVO FSENTE I"
+				: -M + S -> S					// 		SSMATORIA NEGATIVA
+		: End 
+	: End
+	
+	: S -> [C]( F , Q + 1 )						// RESSLTADO SSMATORIA i NODO EN SLTIMA COL MAT[C] "ECSACIONES"
+	: 0 -> S									// LIMPIA ACSMSLADOR PARA SIGSIENTE NODO
+
+: End 
+
+// *** Proceso para Borrar conexiones Tipo 2 Fuente de Corriente ***
+: For(F , 1 , L )
+	: [A](F,1) -> T
+	: [A](F,2) -> P
+	: [A](F,3) -> N
+	: If T == 2
+	: Then 
+		: If P != 0
+			: 0 -> [B](F,P)
+		: If N !=0
+			: 0 -> [B](F,N)
+	: End
+: End

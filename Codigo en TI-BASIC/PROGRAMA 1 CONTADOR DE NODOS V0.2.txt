@@ -1,0 +1,71 @@
+// *** Proceso para Encontrar dimensiones Matriz A ***
+: Dim( [A] ) -> L1 				// GUARDA DIMENSIONES MAT[A] L1[ FILAS , COLUMNAS ]
+: L1(1) -> L					// POSICION 1 LISTA ES NUMERO FILAS MAT[A]
+
+: 0 -> Q						// Contador de Nodos
+: 0 -> U						// Contador Super Nodo Simple (SNS)
+: 0 -> D						// Contador Super Nodo Normal (SNN)
+
+
+: For(F , 1 , L)				// RECORRE FILAS MAT[A] 
+
+	: [A](F , 1) -> T			//	Tipo 
+	: [A](F , 3) -> P			// 	Positivo
+	: [A](F , 4) -> N			// 	Negativo
+
+	: P == N -> E				//  Indicador Positivo y Negativo Iguales
+	: P == 0 AND N == 0 -> Z	//  Indicador Positivo y Negativo en cero
+	: P != 0 AND N == 0 -> I	// 	Indicador Positivo diferente de Cero 
+	: P == 0 AND N != 0 -> J	// 	Indicador Negativo diferente de Cero 
+	: P != 0 AND N != 0 -> K	//	Indicador Positivo y Negativo diferente de Cero 
+	
+
+	: If E OR Z 				//	Cuando Positivo y Negativo Iguales o Positivo y Negativo en Cero
+	: Then
+		: Disp "Error 1", F		// 		Error 1: Dos Nodos en cero o Dos Nodos Iguales en Fila L
+		: Stop					//		Detiene el programa		
+	: End 
+
+	// *** Proceso para enontrar el numero mayor de nodo ***
+	: If  P > N   				
+	: Then						// 	Cuano positivo mayor que negativo
+		: If P >= Q				// 		Cuando Positivo mayor que comparacion anterior Q
+			: P -> Q			//			Positivo pasa a ser Q
+	: Else						// 	Cuando negativo mayor que positivo
+		: If N >= Q				//		Cuando Negativo mayor que comparacion anterior Q		
+			: N -> Q			//			Negativo pasa a ser Q		
+	: End				
+	
+	// *** Proceso contar tipo de Super Nodo ***
+	: If T == 3					// 	TIPO 3: Fuente Voltaje
+	: Then	
+		: If I OR J				//	Cuando es Super Nodo Simple
+			: U + 1 -> U 		//		Incrementa contador SNS
+		: If K == 1				//	Cuando es Super Nodo Normal
+			: D + 1 -> D		//		Incrementa contador SNN
+	: End
+: End 
+
+// *** PROCESO CALCULO PROPIEDADES CIRCUITO ***
+: Q - 1 -> G					// Numero Maximo de Super Nodos Normales SNN
+	
+: If D > G						// Cuando Numero de SNN es mayor que numero maximo de SNN
+: Then
+	: Disp "Error 2"			//		Error 2: Exceso de Super Nodos 
+	: Stop
+:End
+								// Cuando Numero de SNN es menor igual que numero maximo de SNN
+: If D != 0	AND D <= G			// 		Cuando Si hay SNN
+	: Q - D -> H				// 			Numero maximo SNS = Numero Nodos - Numero SNN
+
+: If D == 0						// 		Cuando No hay SNN
+	: Q -> H					//			Numero maximo SNS = Numero Nodos
+
+: If U > H						// Cuando Numero de SNS es mayor que numero maximo de SNS
+: Then
+	: Disp "Error 2"			//		Error 2: Exceso de Super Nodos 			
+	: Stop
+: End
+
+: Disp "NUM NODOS", Q
+
