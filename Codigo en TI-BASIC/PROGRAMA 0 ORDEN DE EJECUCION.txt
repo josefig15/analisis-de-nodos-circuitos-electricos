@@ -1,0 +1,7 @@
+:prgrmNODOS1  // Contador de Nodos
+:prgrmNODOS2  // Conexiones
+:prgrmNODOS3  // LCK Resistores
+:prgrmNODOS4  // LCK F.Corriente 
+:prgrmNODOS5  // Super Nodos Simples
+:prgrmNODOS6  // Super Nodos Normales
+:rref([C])
