@@ -1,28 +1,28 @@
 //*** Proceso Escribir EcSaciones F. CORRIENTE ***
-: 0 -> S										// AcSmSlador FSente de Corriente qSe entra Nodo
+: 0 -> S						// Acumulador FSente de Corriente qSe entra Nodo
 
-: For( F , 1 , Q )								// Recorre EcSacion Fila Mat[C], ColSmnas [B] = ColSmnas [C]
+: For( F , 1 , Q )					// Recorre Ecuacion Fila Mat[C], Columnas [B] = Columnas [C]
 	
-	: For( Y , 1 , L )							// Recorre Filas MAT[B] conexiones, filas [B] = filas [A] 
+	: For( Y , 1 , L )				// Recorre Filas MAT[B] conexiones, filas [B] = filas [A] 
 	
-		: [A](Y,1) -> T							// Tipo
-		: [A](Y,2) -> M							// Magnitud
-		: [A](Y,3) -> P							// Positivo
-		: [A](Y,4) -> N							// Negativo
-		: [B](Y,F) -> X							// Conexion
+		: [A](Y,1) -> T				// Tipo
+		: [A](Y,2) -> M				// Magnitud
+		: [A](Y,3) -> P				// Positivo
+		: [A](Y,4) -> N				// Negativo
+		: [B](Y,F) -> X				// Conexion
 
-		: If T == 2	AND X 						// Tipo Fuente Corriente y Conexion
+		: If T == 2 AND X 			// Tipo Fuente Corriente y Conexion
 		: Then
-			: If P = F							// CSANDO "HAY CONEXION NODO Y SI NODO POSITIVO FSENTE I"
-				: M + S -> S					// 		SSMATORIA POSITIVA 
+			: If P == F			// CUANDO "HAY CONEXION NODO Y SI NODO POSITIVO FUENTE I"
+				: M + S -> S		// SUMATORIA POSITIVA 
 			
-			: If P != F							// CSANDO "HAY CONEXION NODO Y NO NODO POSITIVO FSENTE I"
-				: -M + S -> S					// 		SSMATORIA NEGATIVA
+			: If P != F			// CUANDO "HAY CONEXION NODO Y NO NODO POSITIVO FUENTE I"
+				: -M + S -> S		// SUMATORIA NEGATIVA
 		: End 
 	: End
 	
-	: S -> [C]( F , Q + 1 )						// RESSLTADO SSMATORIA i NODO EN SLTIMA COL MAT[C] "ECSACIONES"
-	: 0 -> S									// LIMPIA ACSMSLADOR PARA SIGSIENTE NODO
+	: S -> [C]( F , Q + 1 )				// RESSLTADO SUMATORIA I NODO EN ULTIMA COL MAT[C] "ECUACIONES"
+	: 0 -> S					// LIMPIA ACUMSLADOR PARA SIGUIENTE NODO
 
 : End 
 
