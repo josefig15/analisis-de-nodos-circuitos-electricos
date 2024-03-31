@@ -1,28 +1,28 @@
 //*** Proceso Escribir Ecuaciones Resistor ***
 
-: 0 -> S											// ACUMULADOR S, INICIA EN CERO
+: 0 -> S							// ACUMULADOR S, INICIA EN CERO
 
-: For( F , 1 , Q )									// Recorre Filas MAT[C] ECUACION, Ecuacion Fila Mat[C]			
+: For( F , 1 , Q )						// Recorre Filas MAT[C] ECUACION, Ecuacion Fila Mat[C]		
+
+	: For( C , 1 , Q )					// Recorre Columnas MAT[C] ECUACION, Columnas [B] = Columnas [C]
 	
-	: For( C , 1 , Q )								// Recorre Columnas MAT[C] ECUACION, Columnas [B] = Columnas [C]
-	
-		: For( Y , 1 , L )							// Recorre Filas MAT[B] conexiones, filas [B] = filas [A]
+		: For( Y , 1 , L )				// Recorre Filas MAT[B] conexiones, filas [B] = filas [A]
 			
-			: [A](Y,1) -> T							// Tipo
-			: [A](Y,2) -> M							// Magnitud
-			: [B](Y,C) -> X							// Conexion
+			: [A](Y,1) -> T				// Tipo
+			: [A](Y,2) -> M				// Magnitud
+			: [B](Y,C) -> X				// Conexion
 		
-			: If T == 1 AND X						// Cuando Tipo Resistor y Conexion en Fila Y, Columan C Mat B
+			: If T == 1 AND X			// Cuando Resistor (T=1) y Conexion (X=1) MatB(Y,C)
 			: Then
-				: If F == C 						// CUANDO "SI ECUACION NODO (FIL MAT[C]= COL MAT[B]) & CONEXION COL MAT[B] = EC NODO" 
-					: M^-1 + S -> S					// SUMATORIA INVERSA ES POSITIVA
+				: If F == C 			// CUANDO FIL MAT[C] = COL MAT[B]) 
+					: M^-1 + S -> S		// SUMATORIA INVERSA ES POSITIVA
 
-				: If F =/ C AND [B](Y,F) == 1		// CUANDO "NO ECUACION NODO (FIL MAT[C]=/COL MAT[B]) & CONEXION COL MAT[B] = EC NODO  & CONEXION COL MAT[B] =/ EC NODO" 
-					: -M^-1 + S -> S				// SUMATORIA INVERSA ES NEGATIVA
+				: If F =/ C AND [B](Y,F) == 1	// CUANDO FIL MAT[C] != COL MAT[B] 
+					: -M^-1 + S -> S	// SUMATORIA INVERSA ES NEGATIVA
 			: End 
 		: End 
-		: S -> [C](F,C)								// ESCRIBE SUMATORIA COL NODO DE LA FILA ECUACION MAT[C]
-		: 0 -> S									// LIMPIA ACUMULADOR S
+		: S -> [C](F,C)					// ESCRIBE SUMATORIA COL NODO DE LA FILA ECUACION MAT[C]
+		: 0 -> S					// LIMPIA ACUMULADOR S
 	: End 
 : End
 
