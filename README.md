@@ -3,7 +3,8 @@ Programa que permite encontrar las tensiones en los Nodos de un circuito electri
 
 ### INSTRUCCIONES DE USO CALCULADORA TI-83/84:
 1) Ingresar todos los elementos que contiene el circuito en la matriz A de la calculadora.
-2) Ejecutar el programa "PROGRAMA 0 ORDEN DE EJECUCION.txt" (contiene el orden de operacion de cada programa). 
+2) Ingresar individualmente cada programa en la calculadora y respetar el numero del programa, este numero corresponde al orden de operacion.
+3) Ejecutar el programa "PROGRAMA 0 ORDEN DE EJECUCION.txt"
 	
 ### INSTRUCCIONES DE USO OCTAVE:
 1) Ingresar todos los elementos que contiene el circuito en la matriz A dentro del script "nodos0.m" 
