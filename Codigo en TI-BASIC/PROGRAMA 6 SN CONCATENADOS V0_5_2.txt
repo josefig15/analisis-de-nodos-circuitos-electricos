@@ -2,124 +2,123 @@
 //	L numero de Elementos
 //	Q Numero de Ecuaciones
 
+: L -> dim(L3)								// VECTOR ALMACENA POSICION SNN YA CALCULADOS		
+: Fill( 0 , L3 )							// LIMPIA VECTOR L3
 
-: L -> dim(L3)											// VECTOR ALMACENA POSICION SNN YA CALCULADOS						
-: Fill( 0 , L3 )										// LIMPIA VECTOR L3
-
-: 1 -> D												// Valor Inicial para entrar bucle while
+: 1 -> D								// Valor Inicial para entrar bucle while
 
 // *** Inicio de Proceso Iterativo ***
 : while D >= 1
 
-	: 0 -> U											// contador Super Nodo de una conexion
-	: 0 -> D											// contador Super Nodo de dos conexiones (Unico Importante)
-	: 0 -> Z											// contador Super Nodo sin conexiones											
+	: 0 -> U							// contador Super Nodo de una conexion
+	: 0 -> D							// contador Super Nodo de dos conexiones (Unico Importante)
+	: 0 -> Z							// contador Super Nodo sin conexiones				
 	
 	// *** Proceso para encontrar SN no operados ***
-	: For( F , 1 , L )									// Recorre Filas MAT[A] INGRESO
+	: For( F , 1 , L )						// Recorre Filas MAT[A] INGRESO
 	
-		: [A](F,1) -> T									// Tipo 
-		: [A](F,2) -> M									// Magnitud
-		: [A](F,3) -> P									// Nodo Positivo
-		: [A](F,4) -> N									// Nodo Negativo
+		: [A](F,1) -> T						// Tipo 
+		: [A](F,2) -> M						// Magnitud
+		: [A](F,3) -> P						// Nodo Positivo
+		: [A](F,4) -> N						// Nodo Negativo
 		
-		: P != 0 AND N != 0 -> K						// Indicador Positivo y Negativo Diferente de Cero
-		: K AND L3(F) == 0 -> E							// Habilitador Super Nodo Normal no operado
+		: P != 0 AND N != 0 -> K				// Indicador Positivo y Negativo Diferente de Cero
+		: K AND L3(F) == 0 -> E					// Habilitador Super Nodo Normal no operado
 		
-		: If T == 3 AND E								// Cuando: Tipo SNN y habilitador 
+		: If T == 3 AND E					// Cuando: Tipo SNN y habilitador 
 		:Then
-			: 0 -> G									// Puntero Fila Sumatoria filas SN
-			: 0 -> H									// Puntero Fila Ecuacion SN
-			: 0 -> I 									// Indicador Conexion en Positivo
-			: 0 -> J									// Indicador Conexion en Negativo
+			: 0 -> G					// Puntero Fila Sumatoria filas SN
+			: 0 -> H					// Puntero Fila Ecuacion SN
+			: 0 -> I 					// Indicador Conexion en Positivo
+			: 0 -> J					// Indicador Conexion en Negativo
 
 			// *** Proceso para encontrar conexiones SNN MAT[B] ***
-			: For( Y , 1 , L )							// Recorre Filas MAT[B] CONEXIONES			
-				: If [B](Y,P) AND Y != F 				// 	Cuando conexion columna POSITIVO y diferente de la fila de SN de analisis	
-					: 1 -> I							// 		I = 1 Conexion en Positivo (P)
-				: If [B](Y,N) AND Y != F 				// 	Cuando conexion columna NEGATIVO y diferente de la fila de SN de analisis	
-					: 1 -> J							// 		J = 1 Conexion en Positivo (N)		
+			: For( Y , 1 , L )				// Recorre Filas MAT[B] CONEXIONES			
+				: If [B](Y,P) AND Y != F 		// Cuando conexion columna POSITIVO y diferente de la fila de SN de analisis	
+					: 1 -> I			// I = 1 Conexion en Positivo (P)
+				: If [B](Y,N) AND Y != F 		// Cuando conexion columna NEGATIVO y diferente de la fila de SN de analisis	
+					: 1 -> J			// J = 1 Conexion en Positivo (N)		
 			: End 
 			
 			//*** Condicion de no operacion ***
-			: If I AND J								// Cuando Hay Dos conexiones 
-				: D + 1 -> D							//		Incrementa contador SN de dos conexiones (unico contador monitoreado)														
+			: If I AND J					// Cuando Hay Dos conexiones 
+				: D + 1 -> D				// Incrementa contador SN de dos conexiones (unico contador monitoreado)														
 			
 			//*** Condiciones de Operacion ***
-			: If I != 1 OR J != 1						// Cuando No hay Dos Conexiones en SN (I = 1 AND J = 1)				
+			: If I != 1 OR J != 1				// Cuando No hay Dos Conexiones en SN (I = 1 AND J = 1)		
 			: Then
 				
-				: 1 -> L3(F)							//	Indicador SN analisis operado en L3	
+				: 1 -> L3(F)				// Indicador SN analisis operado en L3	
 				
 				//*** Cuando no hay SN simple 
 				: If L2(P) == 0 AND L2(N) == 0			
 				: Then							
 				
-					: If I AND J == 0  					// 	Cuando Una conexion Nodo Positivo (P)	
+					: If I AND J == 0  		// Cuando Una conexion Nodo Positivo (P)	
 					: Then				
-						: U + 1 -> U					// 		Incrementa contador SN de una conexion
-						: P -> G						// 		Posicion Sumatoria filas SN en G (P)
-						: N -> H						// 		Posicion Ecuacion SN en H (N)				
+						: U + 1 -> U		// Incrementa contador SN de una conexion
+						: P -> G		// Posicion Sumatoria filas SN en G (P)
+						: N -> H		// Posicion Ecuacion SN en H (N)				
 					: End
 		
-					: If I == 0 AND J 					// 	Cuando Una conexion Nodo Negativo (N)
+					: If I == 0 AND J 		// Cuando Una conexion Nodo Negativo (N)
 					: Then			
-						: U + 1 -> U					// 		Incrementa contador SN de una conexion
-						: N -> G						// 		Posicion Sumatoria filas SN en G (N)
-						: P -> H						// 		Posicion Ecuacion SN en H (P)
+						: U + 1 -> U		// Incrementa contador SN de una conexion
+						: N -> G		// Posicion Sumatoria filas SN en G (N)
+						: P -> H		// Posicion Ecuacion SN en H (P)
 					: End 
 
-					: If I == 0 AND J == 0 				// 	Cuando Ninguna conexion I == 0 AND J == 0
+					: If I == 0 AND J == 0 		// Cuando Ninguna conexion I == 0 AND J == 0
 					: Then
-						: Z + 1 -> Z					// 		incrementa contador de cero conexiones
-						: N -> G						//		Posicion Sumatoria filas SN en G 																				
-						: P -> H						// 		Posicion Ecuacion SN en H 					
+						: Z + 1 -> Z		// incrementa contador de cero conexiones
+						: N -> G		// Posicion Sumatoria filas SN en G 																				
+						: P -> H		// Posicion Ecuacion SN en H 					
 					: End 
 				: End 								
 				
 				//*** Cuando si hay SN simple 				
 				: If L2(P) OR L2(N)				
 				: Then	
-					: If L2(P) AND L2(N) == 0			//	Cuando SN simple en Positivo
-						: N -> H						// 		Puntero fila Negativo (Disponible)
-					: If L2(P) == 0 AND L2(N)			//	Cuando SN simple en Negativo
-						: P -> H						// 		Puntero fila Positivo (Disponible)
+					: If L2(P) AND L2(N) == 0	// Cuando SN simple en Positivo
+						: N -> H		// Puntero fila Negativo (Disponible)
+					: If L2(P) == 0 AND L2(N)	// Cuando SN simple en Negativo
+						: P -> H		// Puntero fila Positivo (Disponible)
 					
-					: 1 -> L2(H)						// 	Indicador SN Simple posicion puntero H
+					: 1 -> L2(H)			// Indicador SN Simple posicion puntero H
 				: End
 											
 				// *** Proceso Escritura Ecuaciones SN MAT[C] ***
-				: For( C , 1 , Q + 1 )						// 	Recorre columnas Mat[C] Ecuaciones
+				: For( C , 1 , Q + 1 )					// Recorre columnas Mat[C] Ecuaciones
 
-					: If L2(P) == 0 AND L2(N) == 0			//	Cuando no hay SN simple conectado al SN
-						: [C](P,C) + [C](N,C) -> [C](G,C)	// 		Sumatoria filas en fila conexion puntero G
+					: If L2(P) == 0 AND L2(N) == 0			// Cuando no hay SN simple conectado al SN
+						: [C](P,C) + [C](N,C) -> [C](G,C)	// Sumatoria filas en fila conexion puntero G
 		
-					: 0 -> [C](H,C)							// 	Limpia Columna no Conexion H
+					: 0 -> [C](H,C)					// Limpia Columna no Conexion H
 
-					: If C = P								// 	Cuando Columna Positivo
-						: +1 -> [C](H,C)					//		escribe ecuancion fila no Conexion puntero H 			
+					: If C = P					// Cuando Columna Positivo
+						: +1 -> [C](H,C)			// escribe ecuancion fila no Conexion puntero H 			
 						
-					: If C = N								// 	Cuando Columna Negativo
-						: -1 -> [C](H,C) 					//		escribe ecuancion fila no Conexion puntero H	 
+					: If C = N					// Cuando Columna Negativo
+						: -1 -> [C](H,C) 			// escribe ecuancion fila no Conexion puntero H	 
 						
-					: If C = Q + 1							// 	Cuando Columna Final
-						:  M -> [C](H,C)					//		copia magnitud ultima columna	
+					: If C = Q + 1					// Cuando Columna Final
+						:  M -> [C](H,C)			// copia magnitud ultima columna	
 				:End 
 			: End
 		: End
 	: End 
 
 	// *** Proceso para borrar conexiones SN MAT[B] ***	
-	: For( F , 1 , L )									// Recorre Filas Mat A = Filas L3														
+	: For( F , 1 , L )							// Recorre Filas Mat A = Filas L3														
 		: If L3(F) == 1									 
 		: Then
-			: [A](F,3) -> P								// Nodo Positivo
-			: [A](F,4) -> N								// Nodo Negativo
+			: [A](F,3) -> P						// Nodo Positivo
+			: [A](F,4) -> N						// Nodo Negativo
 			
-			: If [B](F,P) == 1							// Si hay conexion en positivo (asi borra lo nuevo agregado a la lista)
-				: 0 -> [B](F,P)							// Borra conexion Positivo SN ya escrito
-			: If [B](F,N) == 1							// Si hay conexion en negativo
-				: 0 -> [B](F,N)							// Borra conexion Negativo SN ya escrito
+			: If [B](F,P) == 1					// Si hay conexion en positivo (asi borra lo nuevo agregado a la lista)
+				: 0 -> [B](F,P)					// Borra conexion Positivo SN ya escrito
+			: If [B](F,N) == 1					// Si hay conexion en negativo
+				: 0 -> [B](F,N)					// Borra conexion Negativo SN ya escrito
 		: End 
 	: End 
 												
