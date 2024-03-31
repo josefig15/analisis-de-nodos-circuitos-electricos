@@ -46,21 +46,21 @@
 : End 
 
 // *** PROCESO CALCULO PROPIEDADES CIRCUITO ***
-: Q - 1 -> G					// Numero Maximo de Super Nodos Normales SNN
+: Q - 1 -> G					// Numero Maximo SNN (G)
 	
-: If D > G					// Cuando Numero de SNN es mayor que numero maximo de SNN
+: If D > G					// Cuando Numero SNN (D) es mayor que Numero Maximo SNN (G)
 : Then
 	: Disp "Error 2"			// Error 2: Exceso de Super Nodos 
 	: Stop
 :End
-						// Cuando Numero de SNN es menor igual que numero maximo de SNN
-: If D != 0 AND D <= G				// Cuando Si hay SNN
-	: Q - D -> H				// Numero maximo SNS = Numero Nodos - Numero SNN
 
-: If D == 0					// Cuando No hay SNN
-	: Q -> H				// Numero maximo SNS = Numero Nodos
+: If D != 0 AND D <= G				// Numero SNN no es cero (D!=0) y Numero SNN (D) es Menor a Numero Maximo SNN (G) 
+	: Q - D -> H				// Numero maximo SNS (H) = Numero Nodos (Q) - Numero SNN (D)
 
-: If U > H					// Cuando Numero de SNS es mayor que numero maximo de SNS
+: If D == 0					// Cuando Numero SNN es cero (D=0)
+	: Q -> H				// Numero maximo SNS (H) = Numero Nodos (Q)
+
+: If U > H					// Cuando Numero SNS (U) es mayor que Numero maximo SNS (H)
 : Then
 	: Disp "Error 2"			// Error 2: Exceso de Super Nodos 			
 	: Stop
