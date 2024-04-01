@@ -40,11 +40,11 @@ Dos tipos principales de super nodos:
 				- No se opera. para la siguiente iteracion revisar si cambia numero de conexiones.
 			
 			* Cunado hay 1 conexion a otro Super Nodo Normal
-				- Ecuacion del Super Nodo 			->	se escribe en la fila de Mat[C] correspondiente al nodo sin una conexion a otro SNN. 
+				- Ecuacion del Super Nodo  ->	se escribe en la fila de Mat[C] correspondiente al nodo sin una conexion a otro SNN. 
 				- Sumatoria de Filas del Super Nodo ->  se escribe en la fila de Mat[C] correspondiente al nodo con una conexion a otro SNN.
 		
 			* Cunado hay 0 conexion a otro Super Nodo Normal
-				- Ecuacion del Super Nodo 			->	se escribe en la fila de Mat[C] correspondiente al nodo Positivo.
+				- Ecuacion del Super Nodo  ->	se escribe en la fila de Mat[C] correspondiente al nodo Positivo.
 				- Sumatoria de Filas del Super Nodo ->  se escribe en la fila de Mat[C] correspondiente al nodo Negativo.
 
 
