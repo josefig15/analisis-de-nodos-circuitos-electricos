@@ -5,13 +5,13 @@ Convencion entre los dos tipos de super nodos:
 
 	* Primero se escriben las Ecuaciones de SN simple.
 
-	* En el vector de SNS, se escribe 1, indicando que en esa fila se escribio EC SNS
+	* En el vector de SNS (L2), se escribe 1, indicando que en esa fila se escribio EC SNS
 
-	* Un SNS conectado a SNN, lo convierte en SNS tambien, escribiendo un 1 en el vector de SNS.
+	* Un SNS conectado a SNN, lo convierte en SNS tambien, escribiendo un 1 en el vector de SNS (L2).
 
 	* un SNN con SNS ya no necesita Ecuacion LCK SN.
 
-	* MO NECESITA ESCRIBIRSE EN MATRIZ CONEXIONES
+	* MO NECESITA ESCRIBIRSE EN MATRIZ CONEXIONES (Matriz B).
 
 ALGORITMO:
 	SUPER NODOS SIMPLES
