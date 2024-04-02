@@ -19,7 +19,7 @@ ALGORITMO:
 2) 	Se Busca los SNN en MAT [A] no operados en L3
 
 		* condicion de operacion:
-			T == 3				-> Tipo Fuente de voltaje 
+			T == 3			-> Tipo Fuente de voltaje 
 			P=/0 AND N=/0		-> Positivo y Negativo no conectado a tierra
 			L3(Fila MAT[A])=0	-> Super Nodo Normal No operado en vector L3 
 
@@ -31,13 +31,13 @@ ALGORITMO:
 			
 			Se limpian los Punteros de operacion de SNN
 			0 -> G Sumatoria filas SNN  ( Posicion Fila MAT[C] )
-			0 -> H Ecuacion de SNN		( Posicion Fila MAT[C] )
+			0 -> H Ecuacion de SNN	( Posicion Fila MAT[C] )
 			
 		3.1 Se busca en las columnas Positivo y negativo del SNN en MAT[B] si hay otro 1 y diferente de la misma fila del SNN.
 	
 		3.2 Se escribe 1 en los Indicadores de conexion con otro SNN.
-			I -> Conexion en nodo Positivo 
-			J -> Conexion en nodo Negativo
+			I -> Indicador Conexion en nodo Positivo 
+			J -> Indicador Conexion en nodo Negativo
 	
 		3.3 Los SNN de dos conexiones son ignorados (I==1 AND J==1).	
 		
