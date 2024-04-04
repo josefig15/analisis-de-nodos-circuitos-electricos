@@ -7,8 +7,9 @@ Programa que permite encontrar las tensiones en los Nodos de un circuito electri
 3) Ejecutar el programa "PROGRAMA 0 ORDEN DE EJECUCION.txt"
 	
 ### INSTRUCCIONES DE USO OCTAVE:
-1) Ingresar todos los elementos que contiene el circuito en la matriz A dentro del script "nodos0.m" 
-2) Ejecutar el escript "nodos0.m". (contiene el orden de operacion de cada programa). 
+1) Poner todos los script en un solo directorio.
+2) Ingresar todos los elementos que contiene el circuito en la matriz A dentro del script "nodos0.m" 
+3) Ejecutar el escript "nodos0.m". (contiene el orden de operacion de cada programa). 
 
 ### COMO AJUSTAR EL CIRCUITO:
 
