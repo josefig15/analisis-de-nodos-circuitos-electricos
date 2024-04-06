@@ -1,7 +1,7 @@
 		
 	
 	SNN			MATRIZ CONEXIONES					MATRIZ INGRESO										
-	L3{L}			MAT[B]{ L x Q }						MAT[A]{ L x 4 }							
+	L3{L}			MAT[B]{ L , Q }						MAT[A]{ L , 4 }							
 									
 				N1	N2	N3	..	NQ				T	M	N+	N-										
 	1┌ 0 ┐ ->	1┌	-	-	-	-	-	┐ 	 <--	1┌	1	R	R+	R-	┐		
@@ -16,7 +16,7 @@
 
 
 	SNS			MATRIZ ECUACIONES 1								
-	L2{ Q }			MAT[C]{ Q x Q + 1 }							
+	L2{ Q }			MAT[C]{ Q , Q + 1 }							
 												
 				N1	N2	N3	..	NQ	I / V					
 	1┌ 0 ┐ ->	1┌	-	-	-	-	-	 - 	┐ 													
