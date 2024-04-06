@@ -25,7 +25,9 @@
 	:| . | ->	:|	-	-	-	-	-	 - 	| 	
 	Q└ 0 ┘ ->	Q└	-	-	-	-	-	 - 	┘ 						
 				1	2	3	..	Q	Q+1								
-											
+NOMENCLATURA
+	SNN -> Super Nodo Normal (Ninguna termminal conectada a la referencia).
+	SNS -> Super Nodo Simple (Tiene una Terminal conectada a la referencia).
 
 VARIABLES GLOBALES
 	L numero de Elementos
@@ -48,3 +50,11 @@ MATRIZ C "ECUACIONES"
 	- El numero de filas es igual al numero de Nodos.
 	- El numero de Columnas es igual al numero de Nodos mas Uno.
 	- Se escriben las ecuaciones LCK de los Nodos.
+
+VECTOR L2 "INDICADOR POSICION DE SUPER NODOS SIMPLES"
+	- Indica la Fila de Matriz C "Ecuaciones" donde se escribe la ecuacion del Super Nodo simple.
+
+VECTOR L3 "INDICADOR DE SUPER NODOS NORMALES OPERADOS"
+	- Indica la Fila de MAtriz A "Ingreso" del Super Nodo Normal ya operado.
+
+
