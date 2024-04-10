@@ -16,12 +16,14 @@ Programa que permite encontrar las tensiones en los Nodos de un circuito electri
 1) designar un nodo 0 de referencia, este nodo tendra un tension de 0v.
  
 2) marcar con un numero todos los demas nodos que no son el nodo de referencia.
+   
+3) Enumerar cada Elemento del circuito (Resistor, Fuente corriente o FUente de Voltaje) para indicar el orden de ingreso de los elementos.
  
-3) asumir una polaridad cualquiera para los resistores y marcarlos con + el positivo y - para el negativo.
+4) asumir una polaridad cualquiera para los resistores y marcarlos con + el positivo y - para el negativo.
  
-4) Para las fuentes de Corriente, el postivo de las fuentes de corriente es la punta de la flecha.
+5) Para las fuentes de Corriente, el postivo de las fuentes de corriente es la punta de la flecha.
 	
-5) ingresar todos los elementos que componen el circuito en la matriz A.
+6) ingresar todos los elementos que componen el circuito en la matriz A.
 
 ### INGRESANDO LOS ELEMENTOS DEL CIRCUITO DENTRO DE MATRIZ A:
 		
