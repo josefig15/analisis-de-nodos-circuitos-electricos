@@ -1,5 +1,7 @@
 # analisis-de-nodos-circuitos-electricos
 Programa que permite encontrar las tensiones en los Nodos de un circuito electrico de corriente directa. 
+Este programa ha sido escrito dentro de las limitantes de una calculadora programable TI-83.
+Utilizando solo 26 valriables (A-Z), 3 matrices y 3 vecttores.
 
 ### INSTRUCCIONES DE USO CALCULADORA TI-83/84:
 1) Ingresar individualmente cada programa en la calculadora y respetar el numero del programa, este numero corresponde al orden de operacion.
