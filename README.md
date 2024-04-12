@@ -11,7 +11,8 @@ Utilizando solo 26 valriables (A-Z), 3 matrices y 3 vecttores.
 ### INSTRUCCIONES DE USO OCTAVE:
 1) Poner todos los script en un solo directorio.
 2) Ingresar todos los elementos que contiene el circuito en la matriz A dentro del script "nodos0.m" 
-3) Ejecutar el escript "nodos0.m". (contiene el orden de operacion de cada programa). 
+3) Ejecutar el escript "nodos0.m". (contiene el orden de operacion de cada programa).
+4) Se puede modifircar el script "nodos0.m" para sustituir el script "nodos1.m" por "nodos1_2.m" para ingresar los elementos de forma automatica dentro de la matriz A.
 
 ### COMO AJUSTAR EL CIRCUITO:
 
