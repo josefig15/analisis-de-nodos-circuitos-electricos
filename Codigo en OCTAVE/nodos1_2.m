@@ -1,4 +1,4 @@
-# PROGRMA 0_2 INGRESO DATOS AUTOMATICO
+# PROGRMA 1_2 INGRESO DATOS AUTOMATICO
 # 1) Programa pregunta el numero de Elementos del circuito
 # 2) Programa pregunta el numero de Nodos del circuito. (Numero total Nodos - 1)
 # 3) Programa crea matriz A "Ingreso" 
