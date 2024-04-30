@@ -1,6 +1,6 @@
 ANALISIS DE NODOS
 
-	* Ley de Corriented de Kirchoff (LCK)
+	* Ley de Corrientes de kirchhoff (LCK)
 		- La Sumatoria de corrientes que pasan por el Nodo es Cero.
 		
 		LCK NODO
@@ -8,7 +8,7 @@ ANALISIS DE NODOS
 		
 		DONDE: 
 			IR1 + IR2 + IR3 + ...	Corrientes de los Resistores.
-			I1 + I2 + I3 + ...		Corrientes de Fuentes de Corriente.
+			I1 + I2 + I3 + ...	Corrientes de Fuentes de Corriente.
 		
 	* Convencion de direccion de las corrientes de Los Nodos Para Realizar LVK:
 		- Se asume que las corrientes de los Resistores salen del Nodo. 
@@ -49,7 +49,7 @@ ANALISIS DE NODOS
 
 ANALISIS DE MALLAS
 
-	* Ley de Voltajes de Kirchoff (LVK)
+	* Ley de Voltajes de kirchhoff (LVK)
 		- La Sumatoria de Tensiones de una trayectoria cerrrada es cero.
 		
 		LCK NODO
@@ -57,7 +57,7 @@ ANALISIS DE MALLAS
 		
 		DONDE: 
 			VR1 + VR2 + VR3 + ...	Diferencia de Tension de los Resistores.
-			V1 + V2 + V3 + ...		Tensiones de Fuentes de Tension.
+			V1 + V2 + V3 + ...	Tensiones de Fuentes de Tension.
 		
 	* Convencion de Sentido Corrientes de Malla Para Realizar LVK:
 		- Se asume que las corrientes de malla en el circuito son en sentido horario.
