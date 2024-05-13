@@ -53,6 +53,10 @@ Utilizando solo 26 valriables (A-Z), 3 matrices y 3 vecttores.
 Cada fila de la matriz A representa un elemento del circuito.
 El numero de filas de la matriz A es igual al numero de elementos del circuito.	
 
+### INTERPRETACION DE RESULTADOS
+El resultado del analisis queda almacenado en matriz C, donde la tension del Nodo queda en la ultima columna de cada Fila.
+El Numero de fila corresponde al numero del Nodo, por lo tando la fila 1 tiene el resultado del Nodo 1 y asi para todas las demas incognitas.
+
 ### REGLAS SOBRE EL CONTENIDO DE MATRIZ A:
 	- UN ELEMENTO NO PUEDE TENER DOS NODOS CON EL MISMO NUMERO.
 	- UN ELEMENTO NO PUEDE TEBER DOS NODOS CONECTADOS A LA REFERENCIA (NODO 0).
