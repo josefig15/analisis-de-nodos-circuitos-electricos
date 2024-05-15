@@ -82,3 +82,11 @@ Si una de estas condicones se cumple, el programa lanza un mensaje de error e in
 ### MENSAJES DE ERROR:
 	Error 1: Un elemento con dos Nodos iguales o un Elemento con dos Nodos a cero.
 	Error 2: Exceso de Super Nodos (Fuentes de Voltaje).
+
+### Alcances:
+1) EL programa puede resolver circuitos que contengan super nodos dobles, triples, etc.
+2) El programa ha sido escrito para poder funcionar dentro de una calculador programable.
+3) El programa solo puede resolver circuitos con fuentes de Tension y corrientes independientes.
+
+### Limitaciones:
+El programa no puede resolver circuitos que contengan Fuentes Dependientes.
