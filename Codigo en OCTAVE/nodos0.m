@@ -20,25 +20,8 @@
 
 clc
 clear
-
-matA = [  1 , 1 , 1 , 0 
-          1 , 1 , 2 , 0
-          1 , 1 , 3 , 0 
-          1 , 1 , 4 , 0  
-          1 , 1 , 0 , 1
-          1 , 1 , 0 , 2
-          1 , 1 , 0 , 3
-          1 , 1 , 0 , 4
           
-          3 , -1 , 1 , 2
-          3 , -1 , 2 , 3
-          3 , -1 , 3 , 4
-          
-          2 , -1 , 0 , 1
-          2 , -1 , 0 , 4
-		  ]
-          
-nodos1 % Programa 1 Contador Nodos
+nodos1_2 % Programa 1 Contador Nodos
 nodos2 % Programa 2 Conexiones
 nodos3 % Programa 3 Resistores
 nodos4 % Programa 4 F.Corriente
@@ -46,6 +29,7 @@ nodos5 % Programa 5 F.Voltaje (Super Nodos Simple)
 nodos6 % Programa 6 F.Voltaje (Super Nodos Normal)
 
 rref(matC)
+
 
 
 
